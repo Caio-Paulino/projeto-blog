@@ -1,0 +1,120 @@
+.header {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-light-blue);
+    padding: 15px 7%;    
+    transition: 0.5s;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+}
+ 
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}   
+
+ul li {
+    padding: 16px;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+ul li a {
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+ul li::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-black);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: all .2s;
+}
+
+ul li:hover::after {
+    opacity: 1;
+}
+
+.toggle-icon {
+    width: 50px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #242424;
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.search-box input{
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
+    font-size: 1rem;
+    max-width: 200px;
+}
+
+.search-box input::placeholder{
+    color: #fff;
+}
+
+.search-box img {
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Dark mode */
+
+.dark .header {
+    background: var(--color-blue);
+    color: #fff;
+}
+
+.dark ul li a {
+    color: white;
+}
+
+.dark ul li::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    opacity: 0;
+    transition: all .2s;
+}
+
+.dark ul li:hover::after {
+    opacity: 1;
+}
+
+.dark .search-box {
+    background: #fff;
+}
+
+.dark .search-box input {
+    color: #222;
+}
+
+.dark .search-box input::placeholder {
+    color: #222;
+}

@@ -1,0 +1,43 @@
+.form-post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
+    padding: 0 5rem;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.input_post,
+textarea {
+    padding: 16px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+label {
+    display: block;
+}
+
+button {
+    margin-bottom: 16px;
+}
+
+/* Dark Mode */
+
+.dark .form-post {
+    border: 1px solid rgba(167, 165, 165, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(167, 165, 165, 0.2);
+}
