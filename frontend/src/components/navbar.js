@@ -21,7 +21,7 @@ function Navbar({theme, setTheme}) {
             <img src={theme === 'light' ? logo_light : logo_dark} alt='logo' className='logo'></img>
             <nav className='navbar'>
                 <ul>
-                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/login">Login</Link></li>
                     <li><Link to="/post">Postar</Link></li>
                     <li><a href="">About</a></li>                    

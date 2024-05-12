@@ -19,7 +19,7 @@ function App() {
     <div className={`App ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme}/>
       <Routes>
-        <Route path="/home" element={<PostSection posts={posts}/>} />
+        <Route path="/" element={<PostSection posts={posts}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/post" element={<PostForm />} />
         <Route path="/post/:postId" element={<PostView posts={posts}/>} />  
