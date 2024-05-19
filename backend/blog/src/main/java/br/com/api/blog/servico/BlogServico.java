@@ -30,13 +30,13 @@ public class BlogServico {
             rm.setMensagem("O título é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if(bm.getResumo().equals("")) {
-            rm.setMensagem(("O resumo é obrigatório!"));
+            rm.setMensagem("O resumo é obrigatório!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if(bm.getPostagem().equals("")) {
-            rm.setMensagem(("A postagem é obrigatória!"));
+            rm.setMensagem("A postagem é obrigatória!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else if(bm.getAutor().equals("")) {
-            rm.setMensagem(("O autor é obrigatório"));
+            rm.setMensagem("O autor é obrigatório");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         } else {
             return new ResponseEntity<BlogModelo>(br.save(bm), HttpStatus.CREATED);

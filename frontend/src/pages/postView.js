@@ -6,21 +6,17 @@ import { useParams } from 'react-router-dom';
 
 const PostView = ({ posts }) => {
     const { postId } = useParams();
-    const postIdString = String(postId); 
-
-    const post = posts.find(post => post.id === postIdString);
-
-
+    const post = posts.find(p => p.id.toString() === postId);
     if (!post) {
         return <div>Postagem não encontrada <p></p></div>;
     }
 
     return (
         <div className="post-details">
-            <h2>{post.title}</h2>
-            <p>Por <strong>{post.author}</strong></p>
-            <p>{post.summary}</p>
-            <p>{post.content}</p>
+            <h2>{post.titulo}</h2>
+            <p>Por <strong>{post.autor}</strong></p>
+            <p>{post.resumo}</p>
+            <p>{post.postagem}</p>
         </div>
     );
 

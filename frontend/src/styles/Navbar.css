@@ -12,6 +12,7 @@
     width: 90px;
     height: 90px;
     cursor: pointer;
+    padding: 5px 0px;
 }
  
 ul {
@@ -57,7 +58,7 @@ ul li:hover::after {
     display: flex;
     align-items: center;
     background: #242424;
-    padding: 4px 12px;
+    padding: 0.25rem 0.75rem;
     border-radius: 50px;
 }
 

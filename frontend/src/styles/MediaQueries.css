@@ -1,0 +1,10 @@
+@media screen and (max-width:768px) {
+    .search-box {
+        background-color: aqua;
+        padding: 2px;
+    }
+    
+    /* .search-box input[type=text]{
+        background-color: red;
+    } */
+}

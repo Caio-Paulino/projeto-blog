@@ -1,16 +1,16 @@
-.post-section {
+/* .post-section {
     width: min(100vw, 968px);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
+} */
 
 .post {
-    /* height: 270px; */
+    height: 260px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 0.5rem;
     padding: 16px;
     padding-block: 1rem;
-    margin: 20px;
+    margin: 30px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   
     display: flex;
@@ -19,6 +19,12 @@
     gap: 5px;
   
     transition: .3s;
+    z-index: 0;
+  }
+
+  .post:hover {
+    transform: scale(1.075);
+    z-index: 1;
   }
   
   .dark .post {
