@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { Drawer, IconButton, List, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { Box, Drawer, IconButton, List, ListItemButton, ListItemText, Typography, TextField } from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Login';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+
 import { Link } from 'react-router-dom';
 
 import toggle_light from '../assets/night.png';
 import toggle_dark from '../assets/day.png';
 
 function DrawerComp({ theme, setTheme }) {
+
+    const colorIcon = theme === 'light' ? '#000' : '#fff'
 
     const toggleTheme = () => {
         setTheme((curr) => (curr === "light" ? "dark" : "light"));
@@ -18,25 +26,57 @@ function DrawerComp({ theme, setTheme }) {
         <React.Fragment>
         <Drawer open={openDrawer}
         onClose={() => setOpenDrawer(false)}>
-            <List sx={{height: "100vh", padding:"16px", display: "flex", flexDirection: "column", alignItems: "center", background: theme === 'light' ? '#fff' : '#000'}}>
+            <List sx={{height: "100vh", padding:"16px", display: "flex", flexDirection: "column", background: theme === 'light' ? '#fff' : '#000'}}>
+            <Box sx={{ display: 'flex', alignItems: 'center', paddingBottom: '16px' }}>
+                <SearchIcon sx={{ color: colorIcon}}/>
+                <TextField
+                    label="Pesquisar"
+                    variant="outlined" 
+                    size="small"
+                    sx={{ background: 'white'}}/>
+            </Box>
                 <Link to="/"><ListItemButton>
-                    <Typography >Home</Typography>
+                    <HomeIcon sx={{ color: colorIcon}}/>
+                    <ListItemText>
+                        <Typography 
+                        variant='h6'
+                        color={theme === 'light' ? '#000' : '#fff'}
+                        paddingLeft={'30px'}>
+                        Home
+                        </Typography>
+                    </ListItemText>
                 </ListItemButton></Link>
                 <Link to="/login"><ListItemButton>
-                    <Typography >Login</Typography>
+                    <LoginIcon sx={{ color: colorIcon}}/>
+                    <ListItemText>
+                        <Typography 
+                        variant='h6'
+                        color={theme === 'light' ? '#000' : '#fff'}
+                        paddingLeft={'30px'}>
+                        Login
+                        </Typography>
+                    </ListItemText>
                 </ListItemButton></Link>
                 <Link to="/post"><ListItemButton>
-                    <Typography>Postar</Typography>
+                <PostAddIcon sx={{ color: colorIcon}}/>
+                    <ListItemText>                        
+                        <Typography 
+                        variant='h6'
+                        color={theme === 'light' ? '#000' : '#fff'}
+                        paddingLeft={'30px'}>
+                        Postar
+                        </Typography>
+                    </ListItemText>
                 </ListItemButton></Link>
-                <ListItemButton>
-                <img onClick={() => toggleTheme()} src={theme === 'light' ? toggle_light : toggle_dark} className='toggle-icon' alt='icone'></img>
+                <ListItemButton sx={{padding: "0px"}}>
+                <img onClick={() => toggleTheme()} src={theme === 'light' ? toggle_light : toggle_dark} className='toggle-icon-drawer' alt='icone'></img>
                 </ListItemButton>
             </List>
         </Drawer>
         <IconButton 
         onClick={() => setOpenDrawer(!openDrawer)}
-        sx={{color: "white", marginLeft: "auto"}}>
-            <MenuIcon />
+        sx={{color: "white", width: "30px"}}>
+            <MenuIcon/>
         </IconButton>
         </React.Fragment>
     );
