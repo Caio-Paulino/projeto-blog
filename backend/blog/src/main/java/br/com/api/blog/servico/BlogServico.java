@@ -1,5 +1,7 @@
 package br.com.api.blog.servico;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,11 @@ public class BlogServico {
         return br.findAll();
     }
 
+    // Método de listagem por Id
+    public Optional<BlogModelo> listarPorId(long id) {
+        return br.findById(id);
+    }
+
     // Método para cadastrar post
     public ResponseEntity<?> criarPost(BlogModelo bm) {
 
@@ -41,5 +48,15 @@ public class BlogServico {
         } else {
             return new ResponseEntity<BlogModelo>(br.save(bm), HttpStatus.CREATED);
         }
+    }
+
+    // Método para apagar post
+    public boolean deletar(long id) {
+        Optional<BlogModelo> blogmodeloOptional = br.findById(id);
+        if(blogmodeloOptional.isEmpty()) {
+            return false;
+        }
+        br.deleteById(id);
+        return true;
     }
 }

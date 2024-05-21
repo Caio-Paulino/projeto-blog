@@ -8,7 +8,7 @@ const PostView = ({ posts }) => {
     const { postId } = useParams();
     const post = posts.find(p => p.id.toString() === postId);
     if (!post) {
-        return <div>Postagem não encontrada <p></p></div>;
+        return <div>Postagem não encontrada</div>;
     }
 
     return (
