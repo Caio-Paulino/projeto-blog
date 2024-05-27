@@ -50,7 +50,7 @@ function Login() {
                             <input type="password"value={password} onChange={(e) => setPassword(e.target.value)} required />
                             <label for="password">Senha</label>
                         </div>
-                        <button type="submit" className='enviar'>Entrar</button>
+                        <button type="submit" className='form-button'>Entrar</button>
                     </form>
                 </section>
                 {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}

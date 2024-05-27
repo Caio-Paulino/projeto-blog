@@ -26,7 +26,7 @@ function DrawerComp({ theme, setTheme }) {
         <React.Fragment>
         <Drawer open={openDrawer}
         onClose={() => setOpenDrawer(false)}>
-            <List sx={{height: "100vh", padding:"16px", display: "flex", flexDirection: "column", background: theme === 'light' ? '#fff' : '#000'}}>
+            <List sx={{height: "100vh", padding:"16px", display: "flex", flexDirection: "column", background: theme === 'light' ? 'var(--color-white)' : 'var(--color-black)'}}>
             <Box sx={{ display: 'flex', alignItems: 'center', paddingBottom: '16px' }}>
                 <SearchIcon sx={{ color: colorIcon}}/>
                 <TextField

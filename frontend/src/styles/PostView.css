@@ -1,7 +1,5 @@
 .post-details {
-    width: 70vw;
-    height: 100vh;
-    overflow-y: scroll;
+    width: 70vw;    
     display: flex;
     flex-direction: column;
     padding: 1rem 3.2rem;

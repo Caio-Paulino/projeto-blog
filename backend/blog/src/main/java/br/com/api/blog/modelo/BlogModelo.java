@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+// Camada Modelo: Responsável por armazenagem e manipulação de dados
+
 @Entity
 @Table(name="blog")
 @Getter

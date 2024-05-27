@@ -22,7 +22,7 @@ function Navbar({ theme, setTheme }) {
     const isMatch = useMediaQuery(bTheme.breakpoints.down('sm'))
 
     return (
-        <AppBar position='static' sx={{ background: theme === 'light' ? "#97C6D3" : "#77B2E8" }} >
+        <AppBar position='static' sx={{ background: theme === 'light' ? "var(--color-light-blue)" : "var(--color-blue)" }} >
             <Toolbar style={{ display: "flex", justifyContent: "space-between", paddingBottom: "16px", paddingTop: "16px" }}>
                 {
                     isMatch ? (

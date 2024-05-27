@@ -11,21 +11,24 @@ import br.com.api.blog.modelo.BlogModelo;
 import br.com.api.blog.modelo.RespostaModelo;
 import br.com.api.blog.repositorio.BlogRepositorio;
 
+// Serviço: Camada que faz a ponte entre o Modelo e Repositório
 @Service
 public class BlogServico {
     
-    @Autowired
-    private BlogRepositorio br;
+    @Autowired // Autowired: Injeção de dependências
+    private BlogRepositorio br; // Objeto de acesso a ações SQL no repositório
 
     @Autowired 
-    private RespostaModelo rm;
+    private RespostaModelo rm; // Responsável por retornar ao usuário um feedback caso falte algo
 
-    // Método de listagem
+    // Método de listagem 
+    // Iterable: interface usada para coleção de elementos
     public Iterable<BlogModelo> listar(){
-        return br.findAll();
+        return br.findAll(); 
     }
 
-    // Método de listagem por Id
+    // Método de listagem por Id 
+    // Optional: Representa valor que pode ou não estar presente
     public Optional<BlogModelo> listarPorId(long id) {
         return br.findById(id);
     }
