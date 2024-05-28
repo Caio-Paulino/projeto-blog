@@ -21,3 +21,13 @@ export const criarPost = async (post) => {
         throw error;
     }
 };
+
+export const deletarPost = async (postId) => {
+    try {
+        const response = await axios.delete(`${API_URL}/post/${postId}`);
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao deletar o post:", error);
+        throw error;
+    }
+};

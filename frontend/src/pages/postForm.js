@@ -25,6 +25,16 @@ function PostForm() {
     }
   };
 
+//   export const deletarPost = async (id) => {
+//     try {
+//         const response = await axios.post(`${API_URL}/deletar/${id}`, id);
+//         return response.data;
+//     } catch (error) {
+//         console.error("Erro durante deletar o post:", error);
+//         throw error;
+//     }
+// };
+
   return (
     <form className="form-post" onSubmit={handleSubmit}>
       <h1>Postar</h1>

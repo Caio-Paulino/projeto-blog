@@ -1,9 +1,21 @@
 import React from 'react';
-import '../styles/Post.css'
-import { Link } from 'react-router-dom';
-import { Grid } from '@mui/material'
+import '../styles/Post.css';
 
-const Post = ({ posts }) => {
+import { Link } from 'react-router-dom';
+import { Grid } from '@mui/material';
+import { deletarPost } from '../crudService';
+
+const Post = ({ posts, setPosts }) => {
+
+  const handleDelete = async (postId) => {
+    try {
+        await deletarPost(postId);
+        setPosts(posts.filter(post => post.id !== postId));
+    } catch (error) {
+        console.error("Erro ao deletar o post:", error);
+    }
+  };
+
     return (
       <Grid container md={12} 
       >
@@ -18,9 +30,12 @@ const Post = ({ posts }) => {
                 <h2 className="card-title">{post.titulo}</h2>
                 <p className="post-p">{post.resumo}</p>
                 <p className="post-p">Por {post.autor}</p>
-                <Link to={`/post/${post.id}`}>
-                  <button className="post-button">Leia mais</button>
-                </Link>
+                <div class="buttons-area">
+                  <Link to={`/post/${post.id}`}>
+                    <button className="post-button">Leia mais</button>
+                  </Link>
+                  <button className="post-button" id="button-deletar" onClick={() => handleDelete(post.id)}>Deletar</button>
+                </div>
           </div>
           </div>
         </Grid>    

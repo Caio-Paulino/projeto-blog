@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import br.com.api.blog.modelo.UserModelo;
 
+// Repositório: Responsável por disponibilizar ações de banco de dados
 @Repository
 public interface UserRepositorio extends CrudRepository<UserModelo, Long>{
-    UserModelo findByUsername(String username);
+
 }
