@@ -9,6 +9,7 @@ import Post from './pages/post.js';
 
 import { Route, Routes } from 'react-router-dom';
 import { getPosts } from './crudService.js';
+import Home from '@mui/icons-material/Home.js';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -33,8 +34,10 @@ function App() {
       <div className="App">
         <Navbar theme={theme} setTheme={setTheme} />
         <Routes>
-          <Route path="/" element={<Post posts={posts} />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Post posts={posts} />} />
+          <Route path="/home" element={<Home />} />
+
           <Route path="/post" element={<PostForm posts={posts} />} />
           <Route path="/post/:postId" element={<PostView posts={posts} />} />
         </Routes>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../styles/styleLogin.css";
-import Home from './home';
+import { getPosts } from '../crudService';
+import Post from '../pages/post';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const r = await axios.post('http://localhost:8080/login', {
+            const r = await axios.post('http://localhost:8080/logar', {
                 username,
                 password
             });
@@ -26,6 +27,22 @@ function Login() {
             }
         }
     };
+
+    const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const data = await getPosts();
+        // posts.filter(posts.titulo === "teste título")
+        setPosts(data);
+      } catch (error) {
+        console.error("There was an error fetching the posts!", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
     
 
     return (
@@ -33,7 +50,10 @@ function Login() {
         <div className='wrapper'>
             {estaLogado ? (
                 <div>
-                    <Home />
+                    {/* <Routes>
+          <Route path="/" element={<Home  />} />
+        </Routes> */}
+        <Post posts={posts} />
                 </div>
             ) : (
             <body>
