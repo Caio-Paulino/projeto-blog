@@ -1,13 +1,27 @@
-// PostForm.js
 import React, { useState } from 'react';
 import '../styles/PostForm.css';
 import { criarPost } from '../crudService';
 
-function PostForm() {
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+function PostForm({ addPost }) {
   const [titulo, setTitle] = useState('');
   const [resumo, setSummary] = useState('');
   const [postagem, setContent] = useState('');
   const [autor, setAuthor] = useState('');
+
+  // Variável que contém os dados do toast
+  const notify = () => toast.success('Post criado com sucesso!', {
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "colored"
+  });
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,25 +29,18 @@ function PostForm() {
       const newPost = { titulo, resumo, postagem, autor };
       const response = await criarPost(newPost);
       console.log(response);
+      addPost(newPost);  // Adiciona o novo post à lista de posts
+      notify();  // Mostra o toast de sucesso
       // Redefinir os campos após o envio bem-sucedido do formulário
       setTitle('');
       setContent('');
       setSummary('');
       setAuthor('');
+      
     } catch (error) {
       console.error("Erro durante a criação de post:", error);
     }
   };
-
-//   export const deletarPost = async (id) => {
-//     try {
-//         const response = await axios.post(`${API_URL}/deletar/${id}`, id);
-//         return response.data;
-//     } catch (error) {
-//         console.error("Erro durante deletar o post:", error);
-//         throw error;
-//     }
-// };
 
   return (
     <form className="form-post" onSubmit={handleSubmit}>
@@ -89,6 +96,7 @@ function PostForm() {
         />
       </div>
       <button type="submit" className='form-button'>Publicar</button>
+      <ToastContainer />
     </form>
   );
 }

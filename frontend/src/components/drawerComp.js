@@ -46,14 +46,14 @@ function DrawerComp({ theme, setTheme }) {
                         </Typography>
                     </ListItemText>
                 </ListItemButton></Link>
-                <Link to="/login"><ListItemButton>
+                <Link to="/"><ListItemButton>
                     <LoginIcon sx={{ color: colorIcon}}/>
                     <ListItemText>
                         <Typography 
                         variant='h6'
                         color={theme === 'light' ? '#000' : '#fff'}
                         paddingLeft={'30px'}>
-                        Login
+                        Entrar
                         </Typography>
                     </ListItemText>
                 </ListItemButton></Link>

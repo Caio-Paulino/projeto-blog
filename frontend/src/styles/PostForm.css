@@ -1,7 +1,3 @@
-/* .main {
-    height: 100vh;
-} */
-
 .form-post {
     display: flex;
     flex-direction: column;
@@ -17,6 +13,7 @@
 
 .input_post,
 textarea {
+    font-family: "Poppins";
     padding: 16px;
     margin-bottom: 10px;
     border: 1px solid rgba(0,0,0,0.2);

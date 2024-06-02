@@ -1,12 +1,5 @@
-/* .post-section {
-    width: min(100vw, 968px);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-} */
-
-
 .post {
-    height: 260px;
+    height: 300px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 0.5rem;
     padding: 16px;

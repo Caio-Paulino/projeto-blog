@@ -127,6 +127,17 @@ input:target ~ label {
     text-decoration: underline;
 }
 
+.link-login {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 0;
+    color: var(--color-black);  
+}
+
+.link-login:hover {
+    color: rgba(0, 0, 0, 0.747);  
+}
+
 /* Dark Mode */
 
 .dark .login {
@@ -157,4 +168,12 @@ input:target ~ label {
 
 .dark .form-button:hover {
     background-color: var(--color-light-blue);
+}
+
+.dark .link-login {
+    color: #fff;
+}
+
+.dark .link-login:hover {
+    color: #ffffffbe;
 }

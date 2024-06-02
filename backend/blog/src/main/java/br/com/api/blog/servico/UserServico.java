@@ -1,5 +1,7 @@
 package br.com.api.blog.servico;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,14 @@ public class UserServico {
             rm.setMensagem("A senha é obrigatória");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
         }else {
+            // Verificar se o nome de usuário já existe no banco de dados
+            Optional<UserModelo> existingUserOpt = ur.findByUsername(um.getUsername().trim());
+            if (existingUserOpt.isPresent()) {
+                rm.setMensagem("Nome de usuário já existe!");
+                return new ResponseEntity<>(rm, HttpStatus.CONFLICT);
+            }
+            
+            // Se não existir, salvar o novo usuário
             return new ResponseEntity<UserModelo>(ur.save(um), HttpStatus.CREATED);
         }
     }
@@ -42,8 +52,20 @@ public class UserServico {
         }else if(um.getPassword().equals("")) {
             rm.setMensagem("A senha incorreta!");
             return new ResponseEntity<RespostaModelo>(rm, HttpStatus.BAD_REQUEST);
-        }else {
-            return ResponseEntity.ok("Login bem-sucedido!");
-        }   
+        } else {
+            Optional<UserModelo> userOpt = ur.findByUsername(um.getUsername());
+            if(userOpt.isPresent()) {
+                UserModelo user = userOpt.get();
+                if(user.getPassword().equals(um.getPassword())) {
+                    return ResponseEntity.ok("Login bem-sucedido!");
+                } else {
+                    rm.setMensagem("Senha incorreta!");
+                    return new ResponseEntity<RespostaModelo>(rm, HttpStatus.UNAUTHORIZED);
+                }
+            } else {
+                rm.setMensagem("Usuário não encontrado!");
+                return new ResponseEntity<RespostaModelo>(rm, HttpStatus.NOT_FOUND);
+            }
+        }
     }
 }

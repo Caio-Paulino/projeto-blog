@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../styles/styleLogin.css";
+import '../styles/Post.css';
 import { getPosts } from '../crudService';
-import Post from '../pages/post';
+import Post from './post';
+import { Route, Routes } from 'react-router-dom';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -23,7 +25,7 @@ function Login() {
             if (error.r) {
                 setErrorMessage(error.r.data);
             } else {
-                setErrorMessage('Erro ao processar a requisição.');
+                setErrorMessage('Usuário ou senha incorretos.');
             }
         }
     };
@@ -49,12 +51,13 @@ function Login() {
         //Com sucesso, redireciona para a página Home
         <div className='wrapper'>
             {estaLogado ? (
-                <div>
-                    {/* <Routes>
-          <Route path="/" element={<Home  />} />
-        </Routes> */}
-        <Post posts={posts} />
-                </div>
+                
+        <div className="App">
+            <Routes>
+              <Route path="/" element={<Post posts={posts} />} />
+            </Routes>
+        </div>
+        
             ) : (
             <body>
                 {/* Sessão do forms, para o envio dos dados do usuário */}

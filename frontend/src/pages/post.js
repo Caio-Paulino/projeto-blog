@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Post.css';
 
 import { Link } from 'react-router-dom';
@@ -7,10 +7,19 @@ import { deletarPost } from '../crudService';
 
 const Post = ({ posts, setPosts }) => {
 
+  const [renderCount, setRenderCount] = useState(0);
+
+  const forceRender = () => {
+    setRenderCount(renderCount + 1);
+  };
+
   const handleDelete = async (postId) => {
     try {
-        await deletarPost(postId);
-        setPosts(posts.filter(post => post.id !== postId));
+      await deletarPost(postId);
+      setPosts(posts.filter(post => post.id !== postId));  
+      
+        
+        forceRender();
     } catch (error) {
         console.error("Erro ao deletar o post:", error);
     }
@@ -21,6 +30,7 @@ const Post = ({ posts, setPosts }) => {
       >
         {posts.map(post => (
         <Grid item
+        key={post.id}
         xs={12} 
         sm={6}
         md={4}

@@ -13,13 +13,18 @@ import DrawerComp from './drawerComp';
 
 
 function Navbar({ theme, setTheme }) {
+    
 
+    // variável que guarda tema
     const toggleTheme = () => {
         setTheme((curr) => (curr === "light" ? "dark" : "light"));
     };
 
+    // guarda tamanho da tela do usuário
     const bTheme = useTheme();
-    const isMatch = useMediaQuery(bTheme.breakpoints.down('sm'))
+    const isMatch = useMediaQuery(bTheme.breakpoints.down('sm'));
+
+    
 
     return (
         <AppBar position='static' sx={{ background: theme === 'light' ? "var(--color-light-blue)" : "var(--color-blue)" }} >
@@ -36,8 +41,8 @@ function Navbar({ theme, setTheme }) {
                             <Link to="/"><img src={logo_light} alt='logo' className='logo'></img></Link>
                             <nav className='navbar'>
                                 <ul>
-                                    <li><Link to="/">Home</Link></li>
-                                    <li><Link to="/login">Login</Link></li>
+                                    <li><Link to="/home">Home</Link></li>
+                                    <li><Link to="/">Entrar</Link></li>
                                     <li><Link to="/post">Postar</Link></li>                                   
                                 </ul>
                             </nav>

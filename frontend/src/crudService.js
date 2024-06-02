@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const API_URL = 'http://localhost:8080';
 
+// Microsserviço Publicação
+
 export const getPosts = async () => {
     try {
         const response = await axios.get(`${API_URL}/listar`);
@@ -31,3 +33,15 @@ export const deletarPost = async (postId) => {
         throw error;
     }
 };
+
+// Microsserviço Usuário
+
+export const cadastrarUsuario = async (cadastro) => {
+    try {
+        const response = await axios.post(`${API_URL}/cadastrar`, cadastro);
+        return response.data;
+    } catch (error) {
+        console.error("Erro durante a criação do cadastro: ", error);
+        throw error;
+    }
+}
