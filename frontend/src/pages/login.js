@@ -36,7 +36,7 @@ function Login() {
     const fetchPosts = async () => {
       try {
         const data = await getPosts();
-        // posts.filter(posts.titulo === "teste título")
+        // posts.filter(posts.titulo === "Heavy Metal")
         setPosts(data);
       } catch (error) {
         console.error("There was an error fetching the posts!", error);

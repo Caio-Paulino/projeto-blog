@@ -6,6 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import ListAltSharpIcon from '@mui/icons-material/ListAltSharp';
 
 import { Link } from 'react-router-dom';
 
@@ -35,7 +36,7 @@ function DrawerComp({ theme, setTheme }) {
                     size="small"
                     sx={{ background: 'white'}}/>
             </Box>
-                <Link to="/"><ListItemButton>
+                <Link to="/home"><ListItemButton>
                     <HomeIcon sx={{ color: colorIcon}}/>
                     <ListItemText>
                         <Typography 
@@ -65,6 +66,17 @@ function DrawerComp({ theme, setTheme }) {
                         color={theme === 'light' ? '#000' : '#fff'}
                         paddingLeft={'30px'}>
                         Postar
+                        </Typography>
+                    </ListItemText>
+                </ListItemButton></Link>
+                <Link to="/search"><ListItemButton>
+                <ListAltSharpIcon sx={{ color: colorIcon}}/>
+                    <ListItemText>                        
+                        <Typography 
+                        variant='h6'
+                        color={theme === 'light' ? '#000' : '#fff'}
+                        paddingLeft={'30px'}>
+                        Pesquisar
                         </Typography>
                     </ListItemText>
                 </ListItemButton></Link>

@@ -10,6 +10,7 @@ import Post from './pages/post.js';
 import { Route, Routes } from 'react-router-dom';
 import { getPosts } from './crudService.js';
 import Cadastro from './pages/cadastro.js';
+import SearchPostById from './pages/searchPostById.js';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -53,6 +54,7 @@ function App() {
           <Route path="/home" element={<Post posts={posts} setPosts={setPosts}/>} />
           <Route path="/post" element={<PostForm addPost={addPost} />} />
           <Route path="/post/:postId" element={<PostView posts={posts} />} />
+          <Route path="/search" element={<SearchPostById />} />
         </Routes>
       </div>
     </body>
