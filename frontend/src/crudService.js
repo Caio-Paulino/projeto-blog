@@ -35,11 +35,12 @@ export const deletarPost = async (postId) => {
 };
 
 export const searchPostById = async (postId) => {
-    const response = await axios.get(`${API_URL}/post/${postId}`);
-    if (!response.ok) {
+    try {
+        const response = await axios.get(`${API_URL}/post/${postId}`);
+        return response.data;
+    } catch (error) {
         throw new Error('Post não encontrado');
     }
-    return response.data;
 };
 
 

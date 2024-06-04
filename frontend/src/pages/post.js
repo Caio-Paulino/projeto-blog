@@ -16,10 +16,8 @@ const Post = ({ posts, setPosts }) => {
   const handleDelete = async (postId) => {
     try {
       await deletarPost(postId);
-      setPosts(posts.filter(post => post.id !== postId));  
-      
-        
-        forceRender();
+      setPosts(posts.filter(post => post.id !== postId));       
+      forceRender();
     } catch (error) {
         console.error("Erro ao deletar o post:", error);
     }
