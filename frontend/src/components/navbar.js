@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import '../styles/Navbar.css';
 
-import logo_light from '../assets/logotipo-do-blogger.png';
+import logo from '../assets/logo.png';
 import toggle_light from '../assets/night.png';
 import toggle_dark from '../assets/day.png';
 
@@ -32,13 +32,13 @@ function Navbar({ theme, setTheme }) {
                 {
                     isMatch ? (
                         <Box sx={{ width: "100vw", display: "flex", alignItems: "center", justifyContent: "space-between"}}>
-                            <Link to="/"><img src={logo_light} alt='logo' className='logo'></img></Link>
+                            <Link to="/"><img src={logo} alt='logo' className='logo'></img></Link>
                             <DrawerComp theme={theme} setTheme={setTheme}
                             />
                         </Box>
                     ) : (
                         <>
-                            <Link to="/"><img src={logo_light} alt='logo' className='logo'></img></Link>
+                            <Link to="/"><img src={logo} alt='logo' className='logo'></img></Link>
                             <nav className='navbar'>
                                 <ul>
                                     <li><Link to="/home">Home</Link></li>
@@ -47,12 +47,12 @@ function Navbar({ theme, setTheme }) {
                                     <li><Link to="/search">Pesquisar</Link></li>                                   
                                 </ul>
                             </nav>
-                            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                            {/* <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                                 <SearchIcon />
                                 <TextField
                                     label="Pesquisar"
                                     variant="standard"                    />
-                            </Box>
+                            </Box> */}
 
                             <img onClick={() => toggleTheme()} src={theme === 'light' ? toggle_light : toggle_dark} className='toggle-icon' alt='icone'></img>
                         </>
